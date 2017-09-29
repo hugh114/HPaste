@@ -17,6 +17,16 @@ open class BaseActivity: AppCompatActivity() {
         activities.add(this)
     }
 
+    override fun onStart() {
+        super.onStart()
+        foregroundCount++
+    }
+
+    override fun onStop() {
+        super.onStop()
+        foregroundCount--
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         activities.remove(this)
@@ -29,15 +39,16 @@ open class BaseActivity: AppCompatActivity() {
 
     companion object {
         private var msgBase = 100
-        protected val activities = mutableListOf<Activity>()
+        private val activities = mutableListOf<Activity>()
+        private var foregroundCount = 0
 
         /** 仅供获取handler msg id */
         fun getMsgId(): Int {
             return msgBase++
         }
 
-        fun hasActivity(): Boolean {
-            return !activities.isEmpty()
+        fun isForeground(): Boolean {
+            return foregroundCount > 0
         }
 
         /**

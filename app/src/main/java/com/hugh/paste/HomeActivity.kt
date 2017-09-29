@@ -22,6 +22,10 @@ class HomeActivity: BaseActivity(), View.OnClickListener {
         startService(intent)
 
         initView()
+    }
+
+    override fun onResume() {
+        super.onResume()
         showContent()
     }
 

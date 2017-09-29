@@ -1,6 +1,7 @@
 package com.hugh.paste
 
 import android.app.Notification
+import android.app.PendingIntent
 import android.app.Service
 import android.content.ClipboardManager
 import android.content.Intent
@@ -29,9 +30,14 @@ class HPasteService: Service() {
     }
 
     private fun startService() {
+        val intent = Intent(this, HomeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val content = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
         val notification = Notification.Builder(this)
                 .setContentTitle("HPaste")
                 .setContentText("Clip Service is Running")
+                .setContentIntent(content)
                 .setSmallIcon(R.mipmap.ic_logo)
                 .setWhen(System.currentTimeMillis())
                 .build()
@@ -41,7 +47,7 @@ class HPasteService: Service() {
     private fun startClipListener () {
         val clipMgr = getSystemService(Service.CLIPBOARD_SERVICE) as ClipboardManager
         clipMgr.addPrimaryClipChangedListener {
-            if (!BaseActivity.hasActivity()) {
+            if (!BaseActivity.isForeground()) {
                 //非应用内粘贴
                 val item = clipMgr.primaryClip.getItemAt(0)
                 HPrefs.addContent(item.text.toString())
