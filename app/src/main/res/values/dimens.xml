@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="h_title_height">45dp</dimen>
+    <dimen name="h_page_margin">24dp</dimen>
+
+    <!--======================== 字体尺寸 start ========================-->
+    <dimen name="h_text_title">25dp</dimen>
+
+    <dimen name="h_text_h0">19dp</dimen>
+    <dimen name="h_text_h1">17dp</dimen>
+    <dimen name="h_text_h2">15dp</dimen>
+
+    <dimen name="h_text_t1">13dp</dimen>
+    <dimen name="h_text_t2">11dp</dimen>
+    <dimen name="h_text_tip">9dp</dimen>
+    <!--======================== 字体尺寸 end ========================-->
+</resources>

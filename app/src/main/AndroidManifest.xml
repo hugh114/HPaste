@@ -33,5 +33,7 @@
             <!--</intent-filter>-->
         <!--</activity>-->
 
+        <service android:name=".HPasteService" />
+
     </application>
 </manifest>

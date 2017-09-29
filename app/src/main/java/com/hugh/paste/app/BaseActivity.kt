@@ -36,8 +36,13 @@ open class BaseActivity: AppCompatActivity() {
             return msgBase++
         }
 
+        fun hasActivity(): Boolean {
+            return !activities.isEmpty()
+        }
+
         /**
          * 获取栈顶activity
+         *
          * @return
          */
         fun getTopActivity(): Activity? {
@@ -46,7 +51,7 @@ open class BaseActivity: AppCompatActivity() {
 
         /**
          * 关闭指定的activity
-
+         *
          * @param actClass
          */
         fun finishActivity(actClass: Class<*>) {
