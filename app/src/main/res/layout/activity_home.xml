@@ -7,16 +7,38 @@
 
     <include layout="@layout/layout_title" />
 
-    <TextView
-        android:id="@+id/home_tv"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cursorVisible="true"
-        android:lineSpacingExtra="10dp"
-        android:padding="@dimen/h_page_margin"
-        android:textColor="@color/h_color_gray"
-        android:textIsSelectable="true"
-        android:textSize="@dimen/h_text_h2"
-        tools:text="asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试\nasdf" />
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/home_tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="10dp"
+                android:padding="@dimen/h_page_margin"
+                android:textColor="@color/h_color_gray_divider"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/h_text_h2" />
+
+            <TextView
+                android:id="@+id/home_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:lineSpacingExtra="10dp"
+                android:padding="@dimen/h_page_margin"
+                android:textColor="@color/h_color_gray"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/h_text_h2"
+                tools:text="asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试asdfasd测试\nasdf" />
+
+        </FrameLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

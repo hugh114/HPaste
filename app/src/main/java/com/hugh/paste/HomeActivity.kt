@@ -33,15 +33,35 @@ class HomeActivity: BaseActivity(), View.OnClickListener {
         if (v.id == R.id.title_iv_right) {
             HPrefs.clearContent()
             home_tv.text = ""
+            home_tv_time.text = ""
         }
     }
 
     private fun initView() {
         title_tv.text = "HPaste"
         title_iv_right.setOnClickListener(this)
+//        home_tv.setOnCreateContextMenuListener { menu, v, menuInfo ->
+//            System.out.println("OnCreateContextMenu hugh")
+//        }
+//        home_tv.setOnEditorActionListener { v, actionId, event ->
+//            System.out.println("onAction action:${actionId}")
+//            false
+//        }
+//        home_tv.setOnKeyListener { v, keyCode, event ->
+//            System.out.println("onKey code:${keyCode}")
+//            false
+//        }
+//        home_tv.setOnTouchListener{ v, event ->
+//            System.out.println("onTouch action:${event.action}")
+//            false
+//        }
+//        home_tv.setOnFocusChangeListener { v, hasFocus ->
+//            System.out.println("onFocusChange code:${hasFocus}")
+//        }
     }
 
     private fun showContent() {
         home_tv.text = HPrefs.getContent()
+        home_tv_time.text = HPrefs.getTime()
     }
 }
